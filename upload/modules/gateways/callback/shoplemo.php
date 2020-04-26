@@ -37,6 +37,11 @@ if ($hash != $_data['hash'])
     die('Shoplemo: Calculated hashes doesn\'t match!');
 }
 
+if ($_data['payment']['payment_status'] != 'COMPLETED')
+{
+    die('Shoplemo: The payment is not completed.');
+}
+
 $customParams = json_decode($_data['custom_params']);
 /*
  * Log Transaction.
